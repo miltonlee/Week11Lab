@@ -36,7 +36,7 @@ public class ForgotPasswordServlet extends HttpServlet {
         
         AccountService as = new AccountService();
         
-        if(as.forgotPassword(email,  getServletContext().getRealPath("/WEB-INF"))){
+        if(as.forgotPassword(email, getServletContext().getRealPath("/WEB-INF"))){
             UserService us = new UserService();
             us.getByEmail(email);
             getServletContext().getRequestDispatcher("/WEB-INF/forgot.jsp").forward(request, response);
